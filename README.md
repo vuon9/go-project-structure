@@ -1,7 +1,7 @@
 # Go project structure
 
 A generic project structure for Go projects, can be used for multiple purposed.
-This one aims to be used for 3PL logistics tracking system to have a clear detail of the project structure.
+This one aims to be used for 3PL tracking system to have a clear detail of the project structure.
 
 ## Features
 
