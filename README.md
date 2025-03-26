@@ -45,11 +45,6 @@ This one aims to be used for 3PL tracking system to have a clear detail of the p
 │   │   │   └── main.go         # Entry point for this cronjob
 │   │   └── ...                 # Other cronjobs
 ├── internal/            # Private packages used within the application
-│   ├── interfaces/        # Core interfaces for the application
-│   │   ├── adapters/
-│   │   ├── domain/
-│   │   ├── infrastructure/
-│   │   └── services/
 │   ├── adapters/       # Adapters for external services
 │   │   ├── carriers/     # Carrier-specific integrations
 │   │   |   ├── fedex/      # FedEx-specific implementation
@@ -85,9 +80,9 @@ This one aims to be used for 3PL tracking system to have a clear detail of the p
 
 Courage centralizing interfaces in a single package to avoid cyclic dependencies. Easy to expand and maintain. Here is an example of how to define an interface and its implementation:
 
-Interface Definition `internal/interfaces/adapters/carriers.go`:
+Interface Definition `internal/adapters/carriers/fedex/fedex.go`:
 ```go
-package adapters
+package fedex
 
 type CarrierInterface interface {
     CreateShipment(parcel *domain.Parcel) (*domain.Shipment, error)
@@ -104,7 +99,6 @@ package fedex
 
 import (
     "your-project/internal/domain"
-    "your-project/internal/interfaces/adapters"
 )
 
 type FedEx struct {
