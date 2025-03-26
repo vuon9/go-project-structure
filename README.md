@@ -47,9 +47,10 @@ This one aims to be used for 3PL tracking system to have a clear detail of the p
 ├── internal/            # Private packages used within the application
 │   ├── adapters/       # Adapters for external services
 │   │   ├── carriers/     # Carrier-specific integrations
+│   │   |   ├── carrier.go        # Main interface of carrier
+│   │   |   ├── mocks/            # Mocks
+│   │   |   |   ├── carrier_mock.go   # Shipment model mock
 │   │   |   ├── fedex/      # FedEx-specific implementation
-│   │   |   |   ├── mocks/            # Mocks
-│   │   |   |   |   ├── fedex_mock.go   # Shipment model mock
 │   │   |   |   ├── fedex.go       # FedEx adapter
 │   │   |   |   ├── fedex_test.go  # FedEx adapter unit tests
 │   │   └── tracking/      # Tracking provider integrations
@@ -80,11 +81,11 @@ This one aims to be used for 3PL tracking system to have a clear detail of the p
 
 Courage centralizing interfaces in a single package to avoid cyclic dependencies. Easy to expand and maintain. Here is an example of how to define an interface and its implementation:
 
-Interface Definition `internal/adapters/carriers/fedex/fedex.go`:
+Interface Definition `internal/adapters/carriers/carrier.go`:
 ```go
-package fedex
+package carriers
 
-type CarrierInterface interface {
+type Carrier interface {
     CreateShipment(parcel *domain.Parcel) (*domain.Shipment, error)
     TrackShipment(shipmentID string) (*domain.TrackingInfo, error)
     CancelShipment(shipmentID string) error
