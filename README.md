@@ -34,47 +34,41 @@ This one aims to be used for 3PL tracking system to have a clear detail of the p
 │       └── *.yml        
 ├── Makefile             # Commands for migrations and tests
 ├── README.md            # Project documentation
-|-- ops/                 # Deployment scripts and utilities
-│   ├── dev/               # Local development environment setup
-│   ├── ci-cd/             # CI/CD configurations
-│   ├── infrastructure/    # Infrastructure as code
+├── ops/                 # Deployment scripts and utilities
 ├── cmd/                 # Executable files for the application
-│   ├── main.go            # Main application entry point
-│   ├── cronjobs/          # Directory for cronjob executables
-│   │   ├── tracking-updater/   # Cronjob for updating tracking info
-│   │   │   └── main.go         # Entry point for this cronjob
-│   │   └── ...                 # Other cronjobs
+│   ├── main.go          # Main application entry point for app, worker, cron
 ├── internal/            # Private packages used within the application
-│   ├── adapters/       # Adapters for external services
-│   │   ├── carriers/     # Carrier-specific integrations
-│   │   |   ├── carrier.go        # Main interface of carrier
+│   ├── adapters/            # Adapters for external services
+│   │   ├── carriers/             # Carrier-specific integrations
+│   │   |   ├── carrier.go        # Main interfaces of carriers
 │   │   |   ├── mocks/            # Mocks
-│   │   |   |   ├── carrier_mock.go   # Shipment model mock
+│   │   |   |   ├── carrier_mock.go
 │   │   |   ├── fedex/      # FedEx-specific implementation
-│   │   |   |   ├── fedex.go       # FedEx adapter
-│   │   |   |   ├── fedex_test.go  # FedEx adapter unit tests
+│   │   |   |   ├── fedex.go       
+│   │   |   |   ├── fedex_test.go  
 │   │   └── tracking/      # Tracking provider integrations
+|   ├── configs/           # App configs
+│   |   ├── config.go
 │   ├── domain/            # Business domain logic
 │   │   ├── models/          # Data models (e.g., Shipment, Parcel)
 │   │   ├── repositories/    # Data access layer
 │   │   └── services/        # Business logic implementations
 │   ├── infrastructure/    # Infrastructure-related code
-│   │   ├── messaging/
-│   │   │   ├── kafka/          # Kafka-specific implementation
+│   │   ├── messaging/       # Messaging tools
+│   │   │   ├── kafka/          
 │   │   │   │   ├── consumers/
 │   │   │   │   ├── producers/
 │   │   │   │   ├── config/
 │   │   │   │   └── messages/
-│   │   ├── databases/  # Database connections and migrations
-│   │   └── webhooks/   # Webhook handling logic
-│   └── utils/        # Utility functions (e.g., logging, errors)
-└── pkg/            # Reusable packages that can be used across projects
-|   ├── client/          # HTTP clients for external APIs
-|   ├── config/          # Configuration management
-|   └── logger/          # Logging utilities
-├── test/                       # Test directories
-│   ├── integration/            # Integration tests
-└── vendor/                     # Dependencies
+│   │   ├── databases/      # Database connections and migrations
+│   │   └── webhooks/       # Webhook handling logic
+│   └── utils/              # Utility functions (e.g., logging, errors)
+└── pkg/                 # Reusable packages that can be used across projects
+|   ├── httpclient/          # HTTP clients for external APIs
+|   ├── config/              # Configuration management
+|   └── logger/              # Logging utilities
+├── testutils/           # Test utilities
+└── vendor/              # Dependencies
 ```
 
 ## Interface & Implementation
