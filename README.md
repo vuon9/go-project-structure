@@ -3,32 +3,25 @@
 A generic project structure for Go projects, can be used for multiple purposes.
 This one aims to be used for 3PL system to have a clear detail of the project structure.
 
-- What is a 3PL?
+> A 3PL (third-party logistics) provider offers outsourced logistics services, which encompass anything that involves management of one or more facets of procurement and fulfillment activities. In business, 3PL has a broad meaning that applies to any service contract that involves storing or shipping items.
 
-A 3PL (third-party logistics) provider offers outsourced logistics services, which encompass anything that involves management of one or more facets of procurement and fulfillment activities. In business, 3PL has a broad meaning that applies to any service contract that involves storing or shipping items.
 
-## Features
+## Script
 
-- Components:
-    - Web APIs
-    - Background jobs
-    - Message brokers
-    - Databases
-    - External APIs
-    - Webhooks
-    - CI/CD pipelines
-    - Local development environment
-- Business features:
-    - Shipment events tracking provider
-    - Polling/Webhook support
-    - Cronjobs/Workers for async/background tasks
-    - Kafka messaging
-    - Carrier-specific adapters
-    - Tracking provider integrations
-- OPS for devops tasks:
-    - Infrastructure as code
-    - CI/CD configurations
-    - Local development environment setup
+A script is provided to generate or clean the project structure:
+
+### Usage
+
+```bash
+# Generate all folders (with .gitkeep files)
+./generate_skeleton.sh
+
+# Generate all folders and sample files
+./generate_skeleton.sh --with-sample
+
+# Clean (remove all generated parent folders)
+./generate_skeleton.sh --clean
+```
 
 ## Project Structure
 
