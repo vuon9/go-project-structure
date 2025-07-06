@@ -75,13 +75,20 @@ A 3PL (third-party logistics) provider offers outsourced logistics services, whi
 └── vendor/              # Dependencies
 ```
 
+## Main
+
+In `cmd/main.go`, it could be a command line structure that support multiple types of program like web, worker, cronjobs. There are some libraries to achieve a simple structure for multiple commands:
+
+- https://github.com/alecthomas/kong
+- https://github.com/spf13/cobra
+
 ## Config
 
-Here is a great reference of parsing env vars into config struct and also generate documents for config https://github.com/g4s8/envdoc?tab=readme-ov-file#compatibility
+Here is a great reference of parsing env vars into config struct by libraries and also generate documents for config: https://github.com/g4s8/envdoc?tab=readme-ov-file#compatibility
 
 ## Interface & Implementation
 
-Courage centralizing interfaces in a single package to avoid cyclic dependencies. Easy to expand and maintain. Here is an example of how to define an interface and its implementation:
+Encourage centralizing interfaces in a single package to avoid cyclic dependencies. Easy to expand and maintain. Here is an example of how to define an interface and its implementation:
 
 Interface Definition `internal/adapters/carriers/carrier.go`:
 ```go
