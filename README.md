@@ -1,7 +1,11 @@
 # Go project structure
 
-A generic project structure for Go projects, can be used for multiple purposed.
-This one aims to be used for 3PL tracking system to have a clear detail of the project structure.
+A generic project structure for Go projects, can be used for multiple purposes.
+This one aims to be used for 3PL system to have a clear detail of the project structure.
+
+- What is a 3PL?
+
+A 3PL (third-party logistics) provider offers outsourced logistics services, which encompass anything that involves management of one or more facets of procurement and fulfillment activities. In business, 3PL has a broad meaning that applies to any service contract that involves storing or shipping items.
 
 ## Features
 
@@ -47,7 +51,7 @@ This one aims to be used for 3PL tracking system to have a clear detail of the p
 │   │   |   |   ├── fedex.go       
 │   │   |   |   ├── fedex_test.go  
 │   │   └── tracking/      # Tracking provider integrations
-|   ├── configs/           # App configs
+|   ├── config/           # App configs
 │   |   ├── config.go
 │   ├── domain/            # Business domain logic
 │   │   ├── models/          # Data models (e.g., Shipment, Parcel)
@@ -70,6 +74,10 @@ This one aims to be used for 3PL tracking system to have a clear detail of the p
 ├── testutils/           # Test utilities
 └── vendor/              # Dependencies
 ```
+
+## Config
+
+Here is a great reference of parsing env vars into config struct and also generate documents for config https://github.com/g4s8/envdoc?tab=readme-ov-file#compatibility
 
 ## Interface & Implementation
 
@@ -121,4 +129,4 @@ func (f *FedEx) CancelShipment(shipmentID string) error {
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT © vuon9
