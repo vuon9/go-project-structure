@@ -65,7 +65,7 @@ This one aims to be used for 3PL tracking system to have a clear detail of the p
 │   └── utils/              # Utility functions (e.g., logging, errors)
 └── pkg/                 # Reusable packages that can be used across projects
 |   ├── httpclient/          # HTTP clients for external APIs
-|   ├── config/              # Configuration management
+|   ├── kafka/               # Wrapped logics to make using 3rd kafka libraries being more easier.
 |   └── logger/              # Logging utilities
 ├── testutils/           # Test utilities
 └── vendor/              # Dependencies
